@@ -1,0 +1,13 @@
+<?php
+
+function devjobs_theme($existing, $type, $theme, $path) {
+
+  return [
+    'vacancies_theme' => [
+      'variables' => [
+        'vacancies' => [],
+      ],
+    ],
+  ];
+
+}

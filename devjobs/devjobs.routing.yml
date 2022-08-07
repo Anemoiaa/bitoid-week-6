@@ -1,0 +1,7 @@
+vacancies.content:
+  path: '/jobs'
+  defaults:
+    _controller: 'Drupal\devjobs\Controller\JobsController::content'
+  requirements:
+    _permission: 'access content'
+

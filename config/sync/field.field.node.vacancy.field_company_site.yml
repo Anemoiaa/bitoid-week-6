@@ -1,0 +1,23 @@
+uuid: 060b2f16-fbff-403f-8456-3eaf1a19f8b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_company_site
+    - node.type.vacancy
+  module:
+    - link
+id: node.vacancy.field_company_site
+field_name: field_company_site
+entity_type: node
+bundle: vacancy
+label: 'Company Site'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

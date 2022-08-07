@@ -1,0 +1,132 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ *
+ * Available variables:
+ * - node: The node entity with limited access to object properties and methods.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - node.getCreatedTime() will return the node creation timestamp.
+ *   - node.hasField('field_example') returns TRUE if the node bundle includes
+ *     field_example. (This does not indicate the presence of a value in this
+ *     field.)
+ *   - node.isPublished() will return whether the node is published or not.
+ *   Calling other methods, such as node.delete(), will result in an exception.
+ *   See \Drupal\node\Entity\Node for a full list of public properties and
+ *   methods for the node object.
+ * - label: The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - author_picture: The node author user entity, rendered using the "compact"
+ *   view mode.
+ * - metadata: Metadata for this node.
+ * - date: Themed creation date field.
+ * - author_name: Themed author name field.
+ * - url: Direct URL of the current node.
+ * - display_submitted: Whether submission information should be displayed.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - node: The current template type (also known as a "theming hook").
+ *   - node--type-[type]: The current node type. For example, if the node is an
+ *     "Article" it would result in "node--type-article". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+ *     teaser would result in: "node--view-mode-teaser", and
+ *     full: "node--view-mode-full".
+ *   The following are controlled through the node publishing options.
+ *   - node--promoted: Appears on nodes promoted to the front page.
+ *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
+ *     teaser listings.
+ *   - node--unpublished: Appears on unpublished nodes visible only to site
+ *     admins.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main
+ *   content tag that appears in the template.
+ * - author_attributes: Same as attributes, except applied to the author of
+ *   the node tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+ * - page: Flag for the full page state. Will be true if view_mode is 'full'.
+ * - readmore: Flag for more state. Will be true if the teaser content of the
+ *   node cannot hold the main body content.
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_node()
+ *
+ */
+#}
+<article {{ attributes }}>
+    
+    <!-- Wrapper  -->
+    <div class="w-11/12 md:w-2/4 mx-auto">
+      <!-- Company card -->
+      <div class="relative flex justify-between items-center shadow-lg top-[-24px] md:top-[-40px] bg-white dark:bg-very_dark_blue rounded text-very_dark_blue pr-10">
+        <div class="flex items-center">
+          {{ content.field_company_logo }}
+          <div class="ml-10">
+            <span class="text-2xl font-bold dark:text-white">{{ content.field_company_name }}</span>
+            <span class="text-base font-normal text-dark_grey">{{ content.field_company_site }}</span>
+          </div>
+        </div>
+        <a href="{{ content.field_company_site[0]['#url']}}" class="px-5 py-4 text-base font-bold text-violet rounded bg-light_grey hover:bg-light_violet dark:text-white dark:bg-dark_grey dark:hover:bg-gray">Company Site</a>
+      </div>
+
+      <!-- Vacancy card -->
+      <div class="p-12 bg-white dark:bg-very_dark_blue">
+        <div class="text-dark_grey font-normal text-base">
+          {{ date }} &#183
+          {{ content.field_work_time[0]['#title'] }}
+        </div>
+        <div class="flex justify-between mt-2 text-very_dark_blue font-bold text-3xl dark:text-white">
+          <div class="flex flex-col">
+            <span>{{ node.label }}</span>
+            <span class="text-violet text-sm">{{ content.field_location.0 }}</span>
+          </div>
+          <button class="px-7 text-base text-white bg-violet hover:bg-light_violet rounded">Apply now</button>
+        </div>
+        <!-- Description -->
+        <div class="my-10 text-base font-normal text-dark_grey dark:text-gray">
+          {{ content.field_description.0}}
+        </div>
+        <!-- Requirements -->
+        <div class="mb-10 text-base font-normal text-dark_grey dark:text-gray">
+          <span class="font-bold text-xl text-very_dark_blue dark:text-white">Requirements</span>
+          <div class="mt-7">{{ content.field_requirements.0 }}</div>
+        </div>
+        <!-- What You Will Do -->
+        <div class="text-base font-normal text-dark_grey dark:text-gray">
+          <span class="font-bold text-xl text-very_dark_blue dark:text-white">
+            What You Will Do
+          </span>
+          <div class="mt-7">{{ content.field_what_you_will_do.0 }}</div>
+        </div>
+      </div>
+      <!-- Footer -->
+      <div class="absolute left-[0] w-full mt-20 py-6 text-very_dark_blue font-bold text-xl bg-white dark:bg-very_dark_blue dark:text-white">
+        <div class="w-11/12 md:w-2/4 mx-auto flex justify-between">
+          <div class="flex flex-col">
+            <span>{{ node.label }}</span>
+            <span class="text-dark_grey text-base font-normal">{{ content.field_company_name.0 }}</span>
+          </div>
+          <button class="px-7 text-base text-white bg-violet hover:bg-light_violet rounded">Apply now</button>
+        </div>
+    </div>
+
+    </div>
+
+
+    
+
+</article>

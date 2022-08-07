@@ -1,0 +1,8 @@
+uuid: 41e3924b-41a6-4e24-8325-bb587032fcf5
+langcode: en
+status: true
+dependencies: {  }
+name: 'Work Time'
+vid: work_time
+description: ''
+weight: 0

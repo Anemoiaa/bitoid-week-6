@@ -1,0 +1,14 @@
+name: my_theme
+description: Theme for DevJobs
+type: theme
+base theme: stable
+core_version_requirement: ^8 || ^9
+package: Custom
+
+libraries:
+  - my_theme/my-lib
+
+regions:
+  header: Header
+  content: Content
+  footer: Footer

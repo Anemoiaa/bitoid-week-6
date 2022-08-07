@@ -1,0 +1,36 @@
+uuid: 3b3fcd45-e1a4-4ef2-8e73-96402918433b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.vacancy.field_company_logo
+    - field.field.node.vacancy.field_company_name
+    - field.field.node.vacancy.field_company_site
+    - field.field.node.vacancy.field_description
+    - field.field.node.vacancy.field_location
+    - field.field.node.vacancy.field_requirements
+    - field.field.node.vacancy.field_what_you_will_do
+    - field.field.node.vacancy.field_work_time
+    - node.type.vacancy
+  module:
+    - user
+id: node.vacancy.teaser
+targetEntityType: node
+bundle: vacancy
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_company_logo: true
+  field_company_name: true
+  field_company_site: true
+  field_description: true
+  field_location: true
+  field_requirements: true
+  field_what_you_will_do: true
+  field_work_time: true
